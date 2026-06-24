@@ -123,7 +123,7 @@ export default function Home() {
         </p>
 
         <div className="space-y-4">
-          <p>📧 contacto@ra2plabs.com</p>
+          <p>📧 ceo@ra2plabs.com</p>
           <p>🌐 www.ra2plabs.com</p>
         </div>
       </section>
