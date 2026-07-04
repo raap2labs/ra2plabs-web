@@ -16,7 +16,7 @@ export default function Home() {
         </h1>
 
         <p className="text-gray-400 text-xl mt-8 max-w-3xl">
-          En RA2 Labs ayudamos a empresas a digitalizar procesos,
+          En RA2P Labs ayudamos a empresas a digitalizar procesos,
           automatizar tareas y desarrollar soluciones tecnológicas
           modernas para crecer más rápido.
         </p>
@@ -129,7 +129,7 @@ export default function Home() {
 
         <p className="text-gray-400 mt-4">
           Contáctanos para desarrollar software, IA o
-          automatizaciones para tu empresa.
+          automatizaciones para tu empresa, agentes de IA.
         </p>
 
         <div className="mt-8">
