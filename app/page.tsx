@@ -129,7 +129,7 @@ export default function Home() {
 
         <p className="text-gray-400 mt-4">
           Contáctanos para desarrollar software, IA o
-          automatizaciones para tu empresa, agentes de IA.
+          automatizaciones para tu empresa.
         </p>
 
         <div className="mt-8">
