@@ -144,3 +144,12 @@ export default function Home() {
     </main>
   );
 }
+
+/*
+========================================
+Version: 1.0.0
+Proyecto: RA2Labs Web
+Descripción: Primera versión de la landing
+Fecha: 2026-07-04
+========================================
+*/
