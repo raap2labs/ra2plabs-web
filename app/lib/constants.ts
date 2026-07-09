@@ -5,7 +5,7 @@ export const SITE = {
     "En RA2P Labs ayudamos a empresas a digitalizar procesos, automatizar tareas y desarrollar soluciones tecnológicas modernas con Inteligencia Artificial.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://ra2plabs.com",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "ceo@ra2plabs.com",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+503 68345701",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "68345701",
   foundingDate: "2024",
 } as const;
 
