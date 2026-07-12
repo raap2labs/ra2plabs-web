@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section id="contacto" className={`${SECTION.PADDING} bg-surface-alt`}>
       <div className={SECTION.CONTAINER}>
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-background via-surface to-[#1e1b4b] border border-border p-10 md:p-16 lg:p-20 text-center">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-background via-surface to-[#112240] border border-border p-10 md:p-16 lg:p-20 text-center">
           <div className="orb orb-indigo" style={{ width: 500, height: 500, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
           <div className="orb orb-purple" style={{ width: 300, height: 300, top: "0%", right: "0%" }} />
 

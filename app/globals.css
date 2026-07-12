@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0a0a;
-  --color-foreground: #f8fafc;
-  --color-surface: #0f111a;
-  --color-surface-hover: #151827;
-  --color-border: #1e2235;
-  --color-border-hover: #2a2f45;
-  --color-primary: #6366f1;
-  --color-primary-hover: #818cf8;
-  --color-primary-muted: #312e81;
-  --color-secondary: #06b6d4;
-  --color-accent: #a78bfa;
-  --color-muted: #475569;
-  --color-muted-foreground: #8892a8;
-  --color-surface-alt: #0d0d0d;
+  --color-background: #0A192F;
+  --color-foreground: #F8FAFC;
+  --color-surface: #0F172A;
+  --color-surface-hover: #112240;
+  --color-border: #1E3A5F;
+  --color-border-hover: #2A4A7F;
+  --color-primary: #2563EB;
+  --color-primary-hover: #3B82F6;
+  --color-primary-muted: #1E3A5F;
+  --color-secondary: #60A5FA;
+  --color-accent: #93C5FD;
+  --color-muted: #64748B;
+  --color-muted-foreground: #94A3B8;
+  --color-surface-alt: #0A1628;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -28,12 +28,12 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(37, 99, 235, 0.3);
   color: #f8fafc;
 }
 
 *:focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -42,14 +42,14 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #0A192F;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2235;
+  background: #1E3A5F;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a2f45;
+  background: #2A4A7F;
 }
 
 /* ───── Background Patterns ───── */
@@ -76,11 +76,11 @@ body {
 /* ───── Glow Effects ───── */
 
 .glow-indigo {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15), 0 0 60px rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15), 0 0 60px rgba(37, 99, 235, 0.05);
 }
 
 .glow-cyan {
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.15), 0 0 60px rgba(6, 182, 212, 0.05);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.15), 0 0 60px rgba(96, 165, 250, 0.05);
 }
 
 .glow-white {
@@ -96,21 +96,21 @@ body {
 /* ───── Card Styles ───── */
 
 .card {
-  background: #0f111a;
-  border: 1px solid #1e2235;
+  background: #0F172A;
+  border: 1px solid #1E3A5F;
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover {
-  border-color: rgba(99, 102, 241, 0.25);
+  border-color: rgba(37, 99, 235, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(99, 102, 241, 0.08), 0 0 80px rgba(99, 102, 241, 0.03);
+  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.08), 0 0 80px rgba(37, 99, 235, 0.03);
 }
 
 .card-cyan:hover {
-  border-color: rgba(6, 182, 212, 0.25);
-  box-shadow: 0 8px 40px rgba(6, 182, 212, 0.08), 0 0 80px rgba(6, 182, 212, 0.03);
+  border-color: rgba(96, 165, 250, 0.25);
+  box-shadow: 0 8px 40px rgba(96, 165, 250, 0.08), 0 0 80px rgba(96, 165, 250, 0.03);
 }
 
 /* ───── Gradient Orbs ───── */
@@ -123,15 +123,15 @@ body {
 }
 
 .orb-indigo {
-  background: rgba(99, 102, 241, 0.15);
+  background: rgba(37, 99, 235, 0.15);
 }
 
 .orb-purple {
-  background: rgba(167, 139, 250, 0.1);
+  background: rgba(96, 165, 250, 0.1);
 }
 
 .orb-cyan {
-  background: rgba(6, 182, 212, 0.08);
+  background: rgba(147, 197, 253, 0.08);
 }
 
 /* ───── Animations ───── */
@@ -183,10 +183,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.1), 0 0 40px rgba(99, 102, 241, 0.05);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.1), 0 0 40px rgba(37, 99, 235, 0.05);
   }
   50% {
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.2), 0 0 60px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2), 0 0 60px rgba(37, 99, 235, 0.1);
   }
 }
 

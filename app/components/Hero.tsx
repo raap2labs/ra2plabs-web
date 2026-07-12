@@ -23,7 +23,7 @@ export default function Hero() {
         >
           Construimos el
           <br />
-          <span className="bg-gradient-to-r from-primary via-accent to-primary-hover bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+          <span className="bg-gradient-to-r from-primary via-secondary to-primary-hover bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
             Futuro Digital
           </span>
           <br />
