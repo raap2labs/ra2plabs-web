@@ -3,7 +3,7 @@ import { ArrowRight } from "./Icons";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-grid bg-[length:48px_48px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,black,transparent)]" />
+      <div className="absolute inset-0 bg-grid bg-[length:48px_48px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_40%,black,transparent)] will-change-transform" />
 
       <div className="orb orb-indigo" style={{ width: 500, height: 500, top: "5%", left: "50%", transform: "translateX(-50%)" }} />
       <div className="orb orb-purple" style={{ width: 400, height: 400, top: "40%", left: "15%" }} />

@@ -24,7 +24,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-white/[0.04]"
+          ? "bg-background/80 backdrop-blur-md border-b border-white/[0.04]"
           : "bg-transparent"
       }`}
     >
@@ -74,7 +74,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-white/[0.04]">
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-white/[0.04]">
           <ul className="px-6 py-6 space-y-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>

@@ -27,7 +27,7 @@ export default function CTA() {
               <div className="flex flex-wrap justify-center gap-4 mt-12">
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="group inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-hover rounded-xl font-semibold text-sm transition-all duration-300 glow-indigo animate-pulse-glow"
+                  className="group inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-hover rounded-xl font-semibold text-sm transition-all duration-300 glow-indigo"
                 >
                   <Mail className="w-4 h-4" />
                   {SITE.email}
