@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SITE } from "./lib/constants";
+import NexusChat from "./components/NexusChat";
+import AnalyticsProvider from "./components/AnalyticsProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,12 +30,14 @@ export const metadata: Metadata = {
     description:
       "Desarrollamos software, inteligencia artificial y automatización para impulsar tu empresa.",
     url: SITE.url,
+    images: [{ url: `${SITE.url}/opengraph-image.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.name} | Software, IA y Automatización`,
     description:
       "Desarrollamos software, inteligencia artificial y automatización para impulsar tu empresa.",
+    images: [`${SITE.url}/opengraph-image.png`],
   },
   robots: {
     index: true,
@@ -89,6 +93,8 @@ export default function RootLayout({
           }}
         />
         {children}
+        <NexusChat />
+        <AnalyticsProvider />
       </body>
     </html>
   );
