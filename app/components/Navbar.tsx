@@ -29,7 +29,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" aria-label="RA2P Labs - Inicio">
+        <Link href="/" data-analytics="nav_click" data-analytics-label="logo" aria-label="RA2P Labs - Inicio">
           <Logo />
         </Link>
 
@@ -38,6 +38,8 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                data-analytics="nav_click"
+                data-analytics-label={link.label}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {link.label}
@@ -48,6 +50,8 @@ export default function Navbar() {
 
         <a
           href="#contacto"
+          data-analytics="cta_click"
+          data-analytics-label="navbar-cotizar"
           className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary hover:bg-primary-hover rounded-lg transition-all duration-200"
         >
           Cotizar
@@ -80,6 +84,8 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  data-analytics="nav_click"
+                  data-analytics-label={link.label}
                   onClick={() => setOpen(false)}
                   className="block text-lg text-muted-foreground hover:text-foreground transition-colors"
                 >
@@ -90,6 +96,8 @@ export default function Navbar() {
             <li>
               <a
                 href="#contacto"
+                data-analytics="cta_click"
+                data-analytics-label="navbar-cotizar-mobile"
                 onClick={() => setOpen(false)}
                 className="block text-center px-5 py-3 bg-primary hover:bg-primary-hover rounded-lg font-medium transition-all duration-200"
               >
