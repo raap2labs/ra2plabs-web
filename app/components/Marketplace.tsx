@@ -24,7 +24,7 @@ export default function Marketplace() {
             <Reveal>
               <SectionTitle
                 tag="Producto"
-                title="Marketplace AI Agent"
+                title="Nexus"
                 description="Nuestro sistema inteligente genera publicaciones, precios recomendados, hashtags y campañas para redes sociales en segundos."
               />
             </Reveal>
