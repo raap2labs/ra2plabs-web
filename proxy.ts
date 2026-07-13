@@ -32,7 +32,7 @@ export function proxy() {
       "font-src 'self' data:",
       "connect-src 'self'",
       "frame-ancestors 'none'",
-      "form-action 'none'",
+      "form-action 'self'",
       "base-uri 'self'",
       "object-src 'none'",
     ].join("; ")
