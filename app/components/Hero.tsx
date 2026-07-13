@@ -45,6 +45,8 @@ export default function Hero() {
         >
           <a
             href="#contacto"
+            data-analytics="cta_click"
+            data-analytics-label="hero-cotizar"
             className="group inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-hover rounded-xl font-semibold text-sm transition-all duration-300 glow-indigo"
           >
             Solicitar Cotización
@@ -53,6 +55,8 @@ export default function Hero() {
 
           <a
             href="#servicios"
+            data-analytics="nav_click"
+            data-analytics-label="hero-ver-servicios"
             className="inline-flex items-center px-8 py-4 rounded-xl font-semibold text-sm border border-border bg-white/[0.02] hover:bg-white/[0.05] hover:border-border-hover transition-all duration-300"
           >
             Ver Servicios

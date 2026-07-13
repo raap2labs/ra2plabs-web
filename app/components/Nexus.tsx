@@ -12,9 +12,9 @@ const features = [
   "Automatización comercial completa",
 ];
 
-export default function Marketplace() {
+export default function Nexus() {
   return (
-    <section id="marketplace" className={`${SECTION.PADDING} bg-surface-alt`}>
+    <section id="nexus" className={`${SECTION.PADDING} bg-surface-alt`}>
       <div className={SECTION.CONTAINER}>
         <div           className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0A192F] via-[#112240] to-[#1E3A5F] p-10 md:p-14 lg:p-20">
           <div className="orb orb-indigo" style={{ width: 400, height: 400, top: "-20%", right: "-10%" }} />
@@ -46,6 +46,8 @@ export default function Marketplace() {
               <div className="mt-12">
                 <a
                   href="#contacto"
+                  data-analytics="cta_click"
+                  data-analytics-label="nexus-demo"
                   className="group inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-hover text-white rounded-xl font-semibold text-sm transition-all duration-300"
                 >
                   Solicitar Demo
