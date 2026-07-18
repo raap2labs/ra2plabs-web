@@ -9,7 +9,6 @@ import { hasLocale } from "./locales";
 import { LanguageProvider } from "../components/LanguageProvider";
 import NexusChatWrapper from "../components/NexusChatWrapper";
 import AnalyticsProvider from "../components/AnalyticsProvider";
-import InstallPrompt from "../components/InstallPrompt";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -140,7 +139,6 @@ export default async function LangLayout({
         </LanguageProvider>
         <NexusChatWrapper />
         <AnalyticsProvider />
-        <InstallPrompt />
         <Script
           id="sw-register"
           strategy="afterInteractive"
