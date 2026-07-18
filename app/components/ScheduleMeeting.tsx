@@ -5,6 +5,7 @@ import { Calendar, Clock, Globe, ArrowRight } from "./Icons";
 import SectionTitle from "./SectionTitle";
 import Reveal from "./Reveal";
 import { SECTION } from "../lib/constants";
+import { trackMeetingBooked } from "../lib/analytics";
 
 const DURATIONS = [
   { value: 15, label: "15 min" },
@@ -56,6 +57,7 @@ export default function ScheduleMeeting() {
       const url = new URL(CALENDLY_URL);
       url.searchParams.set("duration", String(duration));
       window.open(url.toString(), "_blank", "noopener,noreferrer");
+      trackMeetingBooked(duration);
     }
   };
 
@@ -124,8 +126,7 @@ export default function ScheduleMeeting() {
 
                   <button
                     onClick={handleSchedule}
-                    data-analytics="cta_click"
-                    data-analytics-label="schedule-meeting"
+                    data-analytics="meeting_booked"
                     data-analytics-duration={duration}
                     className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold transition-all duration-300 ${
                       CALENDLY_URL

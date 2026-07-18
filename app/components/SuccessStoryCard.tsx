@@ -93,6 +93,8 @@ export default function SuccessStoryCard({
 
         <a
           href="#contacto"
+          data-analytics="case_study_click"
+          data-analytics-title={title}
           className="group/btn inline-flex items-center gap-1.5 mt-6 text-sm font-medium text-primary-hover hover:text-primary transition-colors duration-200"
         >
           <Check className="w-3.5 h-3.5" />

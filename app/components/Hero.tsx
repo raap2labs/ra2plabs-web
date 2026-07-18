@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "./Icons";
 
 export default function Hero() {
@@ -12,9 +13,10 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6 py-32 md:py-40 w-full">
-        <div className="flex items-center gap-2 text-sm text-accent tracking-[0.2em] uppercase mb-8 animate-fade-in-up">
+        <div className="flex items-center gap-3 mb-6 animate-fade-in-up">
+          <Image src="/logo-icon.png" alt="RA2P Labs Logo" width={28} height={28} className="shrink-0 w-6 h-6 md:w-7 md:h-7" unoptimized />
           <span className="inline-block w-8 h-px bg-accent/50" />
-          Innovación y Tecnología
+          <span className="text-sm text-accent tracking-[0.2em] uppercase">Innovación y Tecnología</span>
         </div>
 
         <h1

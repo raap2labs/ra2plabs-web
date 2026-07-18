@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { trackEvent, EVENTS } from "./index";
+import { trackScrollDepth } from "./index";
 
 export function useScrollDepth() {
   const tracked = useRef<Set<number>>(new Set());
@@ -14,14 +14,15 @@ export function useScrollDepth() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
           if (docHeight <= 0) return;
           const pct = Math.round((scrollTop / docHeight) * 100);
 
           thresholds.forEach((t) => {
             if (pct >= t && !tracked.current.has(t)) {
               tracked.current.add(t);
-              trackEvent(EVENTS.SCROLL_DEPTH, { percent: t });
+              trackScrollDepth(t);
             }
           });
 

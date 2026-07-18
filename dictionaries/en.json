@@ -1,0 +1,236 @@
+{
+  "site": {
+    "name": "RA2P Labs",
+    "tagline": "Innovation & Technology",
+    "description": "At RA2P Labs we help businesses digitize processes, automate tasks, and develop modern technology solutions with Artificial Intelligence."
+  },
+  "nav": {
+    "services": "Services",
+    "nexus": "Nexus",
+    "process": "Process",
+    "contact": "Contact",
+    "quote": "Get a Quote",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "badge": "Digital Transformation",
+    "title": "Software, AI & Automation for Your Business",
+    "description": "We build intelligent technology solutions that drive efficiency, reduce costs, and accelerate your company's growth.",
+    "cta": "Quote Project",
+    "services": "View Services"
+  },
+  "services": {
+    "tag": "Services",
+    "title": "Technology Solutions",
+    "description": "We offer a complete ecosystem of services designed to drive your company's digital transformation.",
+    "explore": "Explore service"
+  },
+  "nexus": {
+    "tag": "AI Agent",
+    "title": "Meet Nexus",
+    "description": "Our artificial intelligence assistant that learns from your business and helps you make smarter decisions.",
+    "features": {
+      "kb": { "title": "Knowledge Base", "text": "Trained with up-to-date information on technologies and trends in your industry." },
+      "247": { "title": "Available 24/7", "text": "Answers your customers' questions anytime, no schedules or waiting." },
+      "learns": { "title": "Learns from You", "text": "Every interaction improves its response accuracy and personalization." },
+      "integrate": { "title": "Easy Integration", "text": "Connect it with WhatsApp, web, Slack or your internal systems in minutes." }
+    },
+    "cta": "Try Nexus Now"
+  },
+  "process": {
+    "tag": "Methodology",
+    "title": "How We Work",
+    "description": "A proven process that guarantees results: from idea to implementation and beyond.",
+    "steps": [
+      { "title": "Discovery", "text": "We analyze your business, identify opportunities, and define clear objectives." },
+      { "title": "Strategy", "text": "We design the solution architecture, select technologies, and plan the roadmap." },
+      { "title": "Development", "text": "We build the solution with agile methodologies, delivering value in short cycles." },
+      { "title": "Deployment", "text": "We deploy to production, set up monitoring, and ensure a frictionless transition." },
+      { "title": "Optimization", "text": "We measure results, iterate on the solution, and evolve it continuously." }
+    ]
+  },
+  "whyus": {
+    "tag": "Why Us",
+    "title": "Technology Experts",
+    "description": "We combine technical expertise, strategic vision, and passion for innovation to create solutions that make a difference.",
+    "points": [
+      { "title": "Modern Stack", "text": "Cutting-edge technologies: Next.js, AI, automation, cloud." },
+      { "title": "Real Results", "text": "Projects that generate measurable ROI from the first month." },
+      { "title": "Continuous Support", "text": "We support your project before, during, and after launch." }
+    ]
+  },
+  "testimonials": {
+    "tag": "Testimonials",
+    "title": "What Our Clients Say",
+    "description": "Our clients' satisfaction is our best business card.",
+    "items": [
+      { "name": "Maria G.", "role": "CEO, TechCorp", "text": "RA2P Labs transformed our operation. The automation they implemented saved us 20 hours per week." },
+      { "name": "Carlos R.", "role": "Marketing Director, InnovaAds", "text": "Nexus exceeded all our expectations. Our clients love the instant support." },
+      { "name": "Ana L.", "role": "CTO, Fintech Solutions", "text": "The RA2P team understands technology. They delivered a robust and scalable platform in record time." }
+    ]
+  },
+  "stories": {
+    "tag": "Success Stories",
+    "title": "Results That Speak",
+    "description": "See how we've transformed companies with intelligent technology solutions.",
+    "cta": "Request a similar project"
+  },
+  "schedule": {
+    "tag": "Consulting",
+    "title": "Schedule a Meeting",
+    "description": "Let's talk about your project. We analyze your needs, propose the best strategy, and define next steps together.",
+    "duration": "Meeting duration",
+    "cta": "Schedule Meeting",
+    "soon": "Coming Soon",
+    "alt_cta": "Meanwhile, send us a message through the contact form",
+    "response": "Guaranteed response in under",
+    "hours": "48 hours",
+    "benefits": [
+      "Personalized project diagnosis with no commitment",
+      "Solution proposal with scope, technologies, and budget",
+      "Clear roadmap with milestones and estimated delivery times",
+      "Technical Q&A with our senior team"
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Leave us your details and a specialist will contact you within 48 hours to analyze your project.",
+    "button": "Request Consultation"
+  },
+  "footer": {
+    "description": "Innovation and technology to drive your business. We develop software, artificial intelligence, and automation.",
+    "services_title": "Services",
+    "company_title": "Company",
+    "company_links": {
+      "about": "About Us",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "contact_title": "Contact",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "service": "Service of Interest",
+    "message": "Tell us about your project",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully. We'll contact you soon.",
+    "error": "Error sending message. Please try again.",
+    "select_placeholder": "Select a service"
+  },
+  "blog": {
+    "tag": "Blog",
+    "title": "Articles & Resources",
+    "description": "Technical knowledge, trends, and practical guides to drive your company's digital transformation.",
+    "back": "Back to blog",
+    "all": "All articles",
+    "readMore": "Read article",
+    "minRead": "min read"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "text": "The page you're looking for doesn't exist or has been moved.",
+    "back": "Back to home"
+  },
+  "error": {
+    "title": "Server Error",
+    "text": "An unexpected error occurred. Please try again.",
+    "retry": "Try again"
+  },
+  "language": {
+    "switchTo": "Switch to",
+    "es": "Español",
+    "en": "English"
+  },
+  "og": {
+    "title": "Software, AI & Automation",
+    "description": "We build your company's digital future"
+  },
+  "services_list": [
+    {
+      "slug": "web-development",
+      "title": "Web Development",
+      "subtitle": "Modern applications that drive your business",
+      "description": "We create web applications, enterprise systems, and custom platforms with cutting-edge technologies. From corporate sites to complex platforms, every project is built with quality, performance, and security standards.",
+      "benefits": [
+        { "title": "Custom Applications", "description": "Solutions designed specifically for your company's processes and needs, with no template limitations." },
+        { "title": "High Performance", "description": "We optimize every application for maximum speed using best practices and advanced caching." },
+        { "title": "Guaranteed Scalability", "description": "Architectures ready to grow with you, from hundreds to millions of users." },
+        { "title": "Comprehensive Security", "description": "We protect your application with best security practices, robust authentication, and data encryption." },
+        { "title": "Continuous Integration", "description": "We implement CI/CD pipelines ensuring fast, reliable deployments with zero downtime." },
+        { "title": "Support & Evolution", "description": "We support your project post-launch with maintenance, updates, and new features." }
+      ],
+      "faq": [
+        { "question": "How long does it take to develop a web application?", "answer": "Depending on complexity, from 4 weeks for an MVP to 12 weeks for a full platform." },
+        { "question": "Do you offer maintenance after launch?", "answer": "Yes, we offer continuous maintenance plans including security updates, optimization, and support." },
+        { "question": "Do you work with specific technologies?", "answer": "We adapt to project needs and can work with your existing tech stack." },
+        { "question": "How do you guarantee code quality?", "answer": "We follow code review practices, automated testing, CI/CD, and industry standards." }
+      ]
+    },
+    {
+      "slug": "artificial-intelligence",
+      "title": "Artificial Intelligence",
+      "subtitle": "Intelligent agents that transform your business",
+      "description": "We implement AI solutions that automate decisions, optimize processes, and generate real value. From virtual assistants to multi-agent systems, we bring AI to your company.",
+      "benefits": [
+        { "title": "Custom AI Agents", "description": "We create virtual assistants and autonomous agents trained with your business knowledge." },
+        { "title": "Cognitive Automation", "description": "Systems that learn from your data to make decisions and execute actions without human intervention." },
+        { "title": "Natural Language Processing", "description": "Chatbots that understand and respond in natural language, integrated with WhatsApp, web, and internal systems." },
+        { "title": "Predictive Analytics", "description": "Models that anticipate trends, customer behavior, and business patterns." },
+        { "title": "Existing System Integration", "description": "We connect AI with your current tools: CRM, ERP, databases, and APIs." },
+        { "title": "Intelligent Scalability", "description": "Solutions that grow with you, processing from hundreds to millions of requests." }
+      ],
+      "faq": [
+        { "question": "Do I need large data volumes for AI?", "answer": "Not necessarily. We can work with your existing data and use pre-trained models." },
+        { "question": "How is AI integrated with my current systems?", "answer": "Through APIs and webhooks. AI works as another connector in your tech ecosystem." },
+        { "question": "What problems can AI solve in my company?", "answer": "From automated customer service to document analysis, fraud detection, and inventory optimization." },
+        { "question": "How do you guarantee model accuracy?", "answer": "We implement continuous training, validation, and feedback cycles." }
+      ]
+    },
+    {
+      "slug": "automation",
+      "title": "Automation",
+      "subtitle": "Eliminate repetitive tasks, focus on growth",
+      "description": "We automate business processes to eliminate repetitive tasks, reduce errors, and free your team for high-value activities.",
+      "benefits": [
+        { "title": "Process Automation", "description": "We identify and automate repetitive workflows, eliminating bottlenecks." },
+        { "title": "System Integration", "description": "We connect your existing tools and platforms to work together seamlessly." },
+        { "title": "Smart Orchestration", "description": "We coordinate complex tasks involving multiple systems and conditional decisions." },
+        { "title": "Notifications & Alerts", "description": "Monitoring systems that notify about critical events and changes in real time." },
+        { "title": "Automated Reports", "description": "Periodic report generation with live data, no manual intervention." },
+        { "title": "Operational Scalability", "description": "Processes that run 24/7 without supervision, handling growing volumes." }
+      ],
+      "faq": [
+        { "question": "What processes can be automated?", "answer": "Any repetitive, rule-based process: invoicing, reconciliation, reports, notifications, and more." },
+        { "question": "Is automation expensive?", "answer": "Automation has fast ROI. Most clients recover investment within 3-6 months." },
+        { "question": "Do I need to replace my current systems?", "answer": "No. Automation integrates with your existing systems." },
+        { "question": "What maintenance does automation require?", "answer": "Very little. Once implemented, it runs autonomously with periodic adjustments." }
+      ]
+    },
+    {
+      "slug": "digital-marketing",
+      "title": "Digital Marketing",
+      "subtitle": "AI-powered smart campaigns",
+      "description": "We boost your digital presence with automated marketing strategies. We generate content, optimize campaigns, and maximize results using AI.",
+      "benefits": [
+        { "title": "Automated Content", "description": "We generate posts and copywriting for social media using AI." },
+        { "title": "Campaign Optimization", "description": "We automatically adjust bids, targeting, and budgets to maximize ROI." },
+        { "title": "Smart Hashtags", "description": "System that analyzes trends and recommends effective hashtags." },
+        { "title": "Real-time Analytics", "description": "Dashboards showing instant performance with actionable recommendations." },
+        { "title": "Multi-platform", "description": "Unified campaign management across Meta, Google, LinkedIn, and more." },
+        { "title": "Smart Pricing", "description": "Algorithms that recommend optimal prices based on demand and competition." }
+      ],
+      "faq": [
+        { "question": "How is this different from a traditional agency?", "answer": "We use AI to automate content creation, optimization, and analysis at lower cost." },
+        { "question": "Which platforms do you work with?", "answer": "Meta, Google Ads, LinkedIn Ads, TikTok, and more, all from a centralized system." },
+        { "question": "Can I keep control over campaigns?", "answer": "Yes. You define strategies. AI executes and optimizes under your guidelines." },
+        { "question": "How soon will I see results?", "answer": "Improvements in the first week. Significant CPA and ROAS results in 2-4 weeks." }
+      ]
+    }
+  ]
+}

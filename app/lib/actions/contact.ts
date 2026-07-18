@@ -6,26 +6,33 @@ export type ContactState = {
   error?: string;
 };
 
+const SERVICE_LABELS: Record<string, string> = {
+  "desarrollo-web": "Desarrollo Web",
+  ia: "Inteligencia Artificial",
+  automatizacion: "Automatización",
+  "marketing-digital": "Marketing Digital",
+  otro: "Otro",
+};
+
 function validate(formData: FormData): Record<string, string> | null {
   const errors: Record<string, string> = {};
 
-  const name = formData.get("name") as string;
-  const company = formData.get("company") as string;
-  const email = formData.get("email") as string;
+  const name = (formData.get("name") as string)?.trim();
+  const company = (formData.get("company") as string)?.trim();
+  const email = (formData.get("email") as string)?.trim();
   const service = formData.get("service") as string;
-  const message = formData.get("message") as string;
+  const message = (formData.get("message") as string)?.trim();
+  const phone = (formData.get("phone") as string)?.trim();
 
-  if (!name || name.trim().length < 2)
+  if (!name || name.length < 2)
     errors.name = "El nombre debe tener al menos 2 caracteres";
-  if (!company || company.trim().length < 2)
+  if (!company || company.length < 2)
     errors.company = "La empresa debe tener al menos 2 caracteres";
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     errors.email = "Ingresa un correo electrónico válido";
   if (!service) errors.service = "Selecciona un servicio";
-  if (!message || message.trim().length < 10)
+  if (!message || message.length < 10)
     errors.message = "El mensaje debe tener al menos 10 caracteres";
-
-  const phone = formData.get("phone") as string;
   if (phone && !/^[\d\s\-+()]{7,20}$/.test(phone))
     errors.phone = "Ingresa un número de teléfono válido";
 
@@ -34,40 +41,85 @@ function validate(formData: FormData): Record<string, string> | null {
 
 export async function contactAction(
   _prev: ContactState,
-  formData: FormData
+  formData: FormData,
 ): Promise<ContactState> {
+  const hp = formData.get("website") as string;
+  if (hp) return { success: true };
+
   const errors = validate(formData);
   if (errors) return { success: false, errors };
 
-  /*
-   * ─── EMAIL PROVIDER ──────────────────────────────────
-   * Configure your email provider via environment variables:
-   *
-   *   NEXT_PUBLIC_CONTACT_EMAIL   destination email (already used)
-   *   EMAIL_PROVIDER              resend | sendgrid | smtp
-   *   EMAIL_API_KEY               provider API key
-   *   EMAIL_FROM                  sender address
-   *
-   * Example with Resend:
-   *
-   *   import { Resend } from "resend";
-   *   const resend = new Resend(process.env.EMAIL_API_KEY);
-   *   await resend.emails.send({
-   *     from: process.env.EMAIL_FROM,
-   *     to:   process.env.NEXT_PUBLIC_CONTACT_EMAIL,
-   *     subject: "Nuevo contacto",
-   *     text: `Nombre: ${formData.get("name")}
-   * Empresa: ${formData.get("company")}
-   * Email: ${formData.get("email")}
-   * Teléfono: ${formData.get("phone") || "—"}
-   * Servicio: ${formData.get("service")}
-   * Mensaje: ${formData.get("message")}`,
-   *   });
-   *
-   * For now the action simulates a successful send.
-   */
+  const turnstileToken = formData.get("cf-turnstile-response") as string;
+  if (turnstileToken) {
+    const secret = process.env.TURNSTILE_SECRET_KEY;
+    if (secret) {
+      const verify = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ secret, response: turnstileToken }),
+        },
+      ).then((r) => r.json());
 
-  await new Promise((r) => setTimeout(r, 1000));
+      if (!verify.success) {
+        console.warn("Turnstile verification failed", verify);
+        return { success: false, error: "Error de verificación. Intenta de nuevo." };
+      }
+    }
+  }
+
+  const name = (formData.get("name") as string)?.trim();
+  const company = (formData.get("company") as string)?.trim();
+  const email = (formData.get("email") as string)?.trim();
+  const phone = (formData.get("phone") as string)?.trim();
+  const service = formData.get("service") as string;
+  const message = (formData.get("message") as string)?.trim();
+
+  const emailBody = [
+    `Nombre: ${name}`,
+    `Empresa: ${company}`,
+    `Email: ${email}`,
+    `Teléfono: ${phone || "—"}`,
+    `Servicio: ${SERVICE_LABELS[service] || service}`,
+    `Mensaje: ${message}`,
+  ].join("\n");
+
+  const apiKey = process.env.EMAIL_API_KEY;
+  const from = process.env.EMAIL_FROM;
+  const to = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+
+  if (apiKey && from && to) {
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from,
+          to: [to],
+          subject: `Nuevo contacto de ${name} — ${company}`,
+          text: emailBody,
+        }),
+      });
+
+      if (!res.ok) {
+        const body = await res.text();
+        console.error("Resend error:", res.status, body);
+        return { success: false, error: "Error al enviar el mensaje. Intenta de nuevo." };
+      }
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      return { success: false, error: "Error al enviar el mensaje. Intenta de nuevo." };
+    }
+  } else {
+    console.log("─── Contact Form Submission ───");
+    console.log(emailBody);
+    console.log("───────────────────────────────");
+    await new Promise((r) => setTimeout(r, 800));
+  }
 
   return { success: true };
 }

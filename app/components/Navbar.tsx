@@ -3,9 +3,22 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-import { NAV_LINKS } from "../lib/constants";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "./LanguageProvider";
 
 export default function Navbar() {
+  const { dict } = useLanguage();
+  const nav = dict.nav as {
+    services: string;
+    nexus: string;
+    process: string;
+    contact: string;
+    quote: string;
+    openMenu: string;
+    closeMenu: string;
+  };
+  const { lang } = useLanguage();
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -20,6 +33,13 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  const navLinks = [
+    { href: `/${lang}/services`, label: nav.services },
+    { href: `/${lang}/#nexus`, label: nav.nexus },
+    { href: `/${lang}/#proceso`, label: nav.process },
+    { href: `/${lang}/#contacto`, label: nav.contact },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -29,12 +49,12 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" data-analytics="nav_click" data-analytics-label="logo" aria-label="RA2P Labs - Inicio">
+        <Link href={`/${lang}`} data-analytics="nav_click" data-analytics-label="logo" aria-label="RA2P Labs - Inicio">
           <Logo />
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -48,19 +68,22 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contacto"
-          data-analytics="cta_click"
-          data-analytics-label="navbar-cotizar"
-          className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary hover:bg-primary-hover rounded-lg transition-all duration-200"
-        >
-          Cotizar
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
+          <a
+            href={`/${lang}/#contacto`}
+            data-analytics="cta_click"
+            data-analytics-label="navbar-cotizar"
+            className="inline-flex items-center px-5 py-2.5 text-sm font-medium bg-primary hover:bg-primary-hover rounded-lg transition-all duration-200"
+          >
+            {nav.quote}
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-label={open ? nav.closeMenu : nav.openMenu}
           aria-expanded={open}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -80,7 +103,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-white/[0.04]">
           <ul className="px-6 py-6 space-y-4">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -95,13 +118,13 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="#contacto"
+                href={`/${lang}/#contacto`}
                 data-analytics="cta_click"
                 data-analytics-label="navbar-cotizar-mobile"
                 onClick={() => setOpen(false)}
                 className="block text-center px-5 py-3 bg-primary hover:bg-primary-hover rounded-lg font-medium transition-all duration-200"
               >
-                Cotizar
+                {nav.quote}
               </a>
             </li>
           </ul>

@@ -1,0 +1,236 @@
+{
+  "site": {
+    "name": "RA2P Labs",
+    "tagline": "Innovación y Tecnología",
+    "description": "En RA2P Labs ayudamos a empresas a digitalizar procesos, automatizar tareas y desarrollar soluciones tecnológicas modernas con Inteligencia Artificial."
+  },
+  "nav": {
+    "services": "Servicios",
+    "nexus": "Nexus",
+    "process": "Proceso",
+    "contact": "Contacto",
+    "quote": "Cotizar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "hero": {
+    "badge": "Transformación Digital",
+    "title": "Software, IA y Automatización para tu Negocio",
+    "description": "Desarrollamos soluciones tecnológicas inteligentes que impulsan la eficiencia, reducen costos y aceleran el crecimiento de tu empresa.",
+    "cta": "Cotizar Proyecto",
+    "services": "Ver Servicios"
+  },
+  "services": {
+    "tag": "Servicios",
+    "title": "Soluciones Tecnológicas",
+    "description": "Ofrecemos un ecosistema completo de servicios diseñados para impulsar la transformación digital de tu empresa.",
+    "explore": "Explorar servicio"
+  },
+  "nexus": {
+    "tag": "Agente IA",
+    "title": "Conoce a Nexus",
+    "description": "Nuestro asistente de inteligencia artificial que aprende de tu negocio y te ayuda a tomar decisiones más inteligentes.",
+    "features": {
+      "kb": { "title": "Base de Conocimiento", "text": "Entrenado con información actualizada sobre tecnologías y tendencias de tu industria." },
+      "247": { "title": "Disponible 24/7", "text": "Resuelve dudas de tus clientes en cualquier momento, sin horarios ni esperas." },
+      "learns": { "title": "Aprende de Ti", "text": "Cada interacción mejora su capacidad de respuesta y personalización." },
+      "integrate": { "title": "Fácil Integración", "text": "Conéctalo con WhatsApp, web, Slack o tus sistemas internos en minutos." }
+    },
+    "cta": "Prueba Nexus Ahora"
+  },
+  "process": {
+    "tag": "Metodología",
+    "title": "Cómo Trabajamos",
+    "description": "Un proceso probado que garantiza resultados: desde la idea hasta la implementación y más allá.",
+    "steps": [
+      { "title": "Descubrimiento", "text": "Analizamos tu negocio, identificamos oportunidades y definimos objetivos claros." },
+      { "title": "Estrategia", "text": "Diseñamos la arquitectura de solución, seleccionamos tecnologías y planificamos el roadmap." },
+      { "title": "Desarrollo", "text": "Construimos la solución con metodologías ágiles, entregando valor en ciclos cortos." },
+      { "title": "Implementación", "text": "Desplegamos en producción, configuramos monitoreo y aseguramos una transición sin fricciones." },
+      { "title": "Optimización", "text": "Medimos resultados, iteramos sobre la solución y la evolucionamos continuamente." }
+    ]
+  },
+  "whyus": {
+    "tag": "Por qué Nosotros",
+    "title": "Expertos en Tecnología",
+    "description": "Combinamos experiencia técnica, visión estratégica y pasión por la innovación para crear soluciones que marcan la diferencia.",
+    "points": [
+      { "title": "Stack Moderno", "text": "Tecnologías de vanguardia: Next.js, IA, automatización, cloud." },
+      { "title": "Resultados Reales", "text": "Proyectos que generan ROI medible desde el primer mes." },
+      { "title": "Soporte Continuo", "text": "Acompañamos tu proyecto antes, durante y después del lanzamiento." }
+    ]
+  },
+  "testimonials": {
+    "tag": "Testimonios",
+    "title": "Lo que Dicen Nuestros Clientes",
+    "description": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación.",
+    "items": [
+      { "name": "María G.", "role": "CEO, TechCorp", "text": "RA2P Labs transformó nuestra operación. La automatización que implementaron nos ahorró 20 horas semanales." },
+      { "name": "Carlos R.", "role": "Director de Marketing, InnovaAds", "text": "Nexus superó todas nuestras expectativas. Nuestros clientes aman la atención instantánea." },
+      { "name": "Ana L.", "role": "CTO, Fintech Solutions", "text": "El equipo de RA2P entiende de tecnología. Entregaron una plataforma robusta y escalable en tiempo récord." }
+    ]
+  },
+  "stories": {
+    "tag": "Casos de Éxito",
+    "title": "Resultados que Hablan",
+    "description": "Conoce cómo hemos transformado empresas con soluciones tecnológicas inteligentes.",
+    "cta": "Solicita un proyecto similar"
+  },
+  "schedule": {
+    "tag": "Consultoría",
+    "title": "Agenda una Reunión",
+    "description": "Conversemos sobre tu proyecto. Analizamos tus necesidades, te proponemos la mejor estrategia y definimos juntos los siguientes pasos.",
+    "duration": "Duración de la reunión",
+    "cta": "Agendar Reunión",
+    "soon": "Próximamente",
+    "alt_cta": "Mientras tanto, escríbenos por el formulario de contacto",
+    "response": "Respuesta garantizada en menos de",
+    "hours": "48 horas",
+    "benefits": [
+      "Diagnóstico personalizado de tu proyecto sin compromiso",
+      "Propuesta de solución con alcance, tecnologías y presupuesto",
+      "Roadmap claro con hitos y tiempos de entrega estimados",
+      "Resolución de dudas técnicas con nuestro equipo senior"
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Transformar tu Negocio?",
+    "description": "Déjanos tus datos y un especialista se pondrá en contacto contigo en menos de 48 horas para analizar tu proyecto.",
+    "button": "Solicitar Asesoría"
+  },
+  "footer": {
+    "description": "Innovación y tecnología para impulsar tu empresa. Desarrollamos software, inteligencia artificial y automatización.",
+    "services_title": "Servicios",
+    "company_title": "Empresa",
+    "company_links": {
+      "about": "Sobre Nosotros",
+      "blog": "Blog",
+      "contact": "Contacto"
+    },
+    "contact_title": "Contacto",
+    "whatsapp": "WhatsApp",
+    "rights": "Todos los derechos reservados."
+  },
+  "contact": {
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "company": "Empresa",
+    "service": "Servicio de Interés",
+    "message": "Cuéntanos sobre tu proyecto",
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "Mensaje enviado con éxito. Te contactaremos pronto.",
+    "error": "Error al enviar el mensaje. Intenta de nuevo.",
+    "select_placeholder": "Selecciona un servicio"
+  },
+  "blog": {
+    "tag": "Blog",
+    "title": "Artículos y Recursos",
+    "description": "Conocimiento técnico, tendencias y guías prácticas para impulsar la transformación digital de tu empresa.",
+    "back": "Volver al blog",
+    "all": "Todos los artículos",
+    "readMore": "Leer artículo",
+    "minRead": "min de lectura"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "La página que buscas no existe o ha sido movida.",
+    "back": "Volver al inicio"
+  },
+  "error": {
+    "title": "Error del servidor",
+    "text": "Ocurrió un error inesperado. Por favor intenta de nuevo.",
+    "retry": "Intentar de nuevo"
+  },
+  "language": {
+    "switchTo": "Cambiar a",
+    "es": "Español",
+    "en": "English"
+  },
+  "og": {
+    "title": "Software, IA y Automatización",
+    "description": "Construimos el futuro digital de tu empresa"
+  },
+  "services_list": [
+    {
+      "slug": "web-development",
+      "title": "Desarrollo Web",
+      "subtitle": "Aplicaciones modernas que impulsan tu negocio",
+      "description": "Creamos aplicaciones web, sistemas empresariales y plataformas personalizadas con tecnologías de vanguardia. Desde sitios corporativos hasta plataformas complejas, cada proyecto se construye con estándares de calidad, rendimiento y seguridad.",
+      "benefits": [
+        { "title": "Aplicaciones a la medida", "description": "Soluciones diseñadas específicamente para los procesos y necesidades de tu empresa, sin limitaciones de plantillas." },
+        { "title": "Alto rendimiento", "description": "Optimizamos cada aplicación para máxima velocidad, usando las mejores prácticas de rendimiento web y técnicas de caching avanzadas." },
+        { "title": "Escalabilidad garantizada", "description": "Arquitecturas preparadas para crecer contigo, desde cientos hasta millones de usuarios sin comprometer la experiencia." },
+        { "title": "Seguridad integral", "description": "Protegemos tu aplicación con las mejores prácticas de seguridad, autenticación robusta y cifrado de datos en tránsito y reposo." },
+        { "title": "Integración continua", "description": "Implementamos pipelines de CI/CD que aseguran despliegues rápidos, confiables y sin tiempo de inactividad." },
+        { "title": "Soporte y evolución", "description": "Acompañamos tu proyecto post-lanzamiento con mantenimiento, actualizaciones y nuevas funcionalidades continuas." }
+      ],
+      "faq": [
+        { "question": "¿Cuánto tiempo toma desarrollar una aplicación web?", "answer": "Dependiendo de la complejidad, un proyecto puede tomar desde 4 semanas para un MVP hasta 12 semanas para una plataforma completa." },
+        { "question": "¿Ofrecen mantenimiento después del lanzamiento?", "answer": "Sí, ofrecemos planes de mantenimiento continuo que incluyen actualizaciones de seguridad, optimización de rendimiento, nuevas funcionalidades y soporte técnico." },
+        { "question": "¿Trabajan con tecnologías específicas o se adaptan?", "answer": "Nos adaptamos a las necesidades del proyecto. Recomendamos tecnologías basadas en los requisitos, pero podemos trabajar con tu stack tecnológico existente." },
+        { "question": "¿Cómo garantizan la calidad del código?", "answer": "Seguimos prácticas de code review, pruebas automatizadas, integración continua y estándares de la industria." }
+      ]
+    },
+    {
+      "slug": "artificial-intelligence",
+      "title": "Inteligencia Artificial",
+      "subtitle": "Agentes inteligentes que transforman tu negocio",
+      "description": "Implementamos soluciones de inteligencia artificial que automatizan decisiones, optimizan procesos y generan valor real. Desde asistentes virtuales hasta sistemas multi-agente, llevamos la IA a tu empresa.",
+      "benefits": [
+        { "title": "Agentes de IA personalizados", "description": "Creamos asistentes virtuales y agentes autónomos entrenados con el conocimiento de tu negocio." },
+        { "title": "Automatización cognitiva", "description": "Sistemas que aprenden de tus datos para tomar decisiones, clasificar información y ejecutar acciones sin intervención humana." },
+        { "title": "Procesamiento de lenguaje natural", "description": "Chatbots y asistentes que entienden y responden en lenguaje natural, integrados con WhatsApp, web y sistemas internos." },
+        { "title": "Análisis predictivo", "description": "Modelos que anticipan tendencias, comportamientos de clientes y patrones de negocio para tomar decisiones informadas." },
+        { "title": "Integración con sistemas existentes", "description": "Conectamos la IA con tus herramientas actuales: CRM, ERP, bases de datos y APIs." },
+        { "title": "Escalabilidad inteligente", "description": "Soluciones que crecen contigo, procesando desde cientos hasta millones de solicitudes con infraestructura cloud elástica." }
+      ],
+      "faq": [
+        { "question": "¿Necesito grandes volúmenes de datos para implementar IA?", "answer": "No necesariamente. Podemos trabajar con tus datos existentes y usar modelos pre-entrenados." },
+        { "question": "¿Cómo se integra la IA con mis sistemas actuales?", "answer": "A través de APIs y webhooks. La IA funciona como un conector más en tu ecosistema tecnológico." },
+        { "question": "¿Qué tipo de problemas puede resolver la IA en mi empresa?", "answer": "Desde atención al cliente automatizada, análisis de documentos, detección de fraudes, hasta optimización de inventarios." },
+        { "question": "¿Cómo garantizan la precisión del modelo?", "answer": "Implementamos ciclos de entrenamiento, validación y retroalimentación continua." }
+      ]
+    },
+    {
+      "slug": "automation",
+      "title": "Automatización",
+      "subtitle": "Elimina tareas repetitivas, enfócate en crecer",
+      "description": "Automatizamos procesos empresariales para eliminar tareas repetitivas, reducir errores y liberar a tu equipo para actividades de alto valor.",
+      "benefits": [
+        { "title": "Automatización de procesos", "description": "Identificamos y automatizamos flujos de trabajo repetitivos, eliminando cuellos de botella." },
+        { "title": "Integración de sistemas", "description": "Conectamos tus herramientas y plataformas existentes para que trabajen en conjunto." },
+        { "title": "Orquestación inteligente", "description": "Coordinamos tareas complejas que involucran múltiples sistemas y decisiones condicionales." },
+        { "title": "Notificaciones y alertas", "description": "Sistemas de monitoreo que notifican sobre eventos críticos y cambios en tiempo real." },
+        { "title": "Reportes automatizados", "description": "Generación de informes periódicos con datos en vivo, sin intervención manual." },
+        { "title": "Escalabilidad operativa", "description": "Procesos que funcionan 24/7 sin supervisión, manejando volúmenes crecientes." }
+      ],
+      "faq": [
+        { "question": "¿Qué procesos se pueden automatizar?", "answer": "Cualquier proceso repetitivo y basado en reglas: facturación, conciliación, reportes, notificaciones y más." },
+        { "question": "¿Es costoso implementar automatización?", "answer": "La automatización tiene un ROI rápido. La mayoría recupera la inversión en los primeros 3-6 meses." },
+        { "question": "¿Necesito reemplazar mis sistemas actuales?", "answer": "No. La automatización se integra con tus sistemas existentes." },
+        { "question": "¿Qué mantenimiento requiere la automatización?", "answer": "Muy poco. Una vez implementada, funciona de forma autónoma con ajustes periódicos." }
+      ]
+    },
+    {
+      "slug": "digital-marketing",
+      "title": "Marketing Digital",
+      "subtitle": "Campañas inteligentes impulsadas por IA",
+      "description": "Potenciamos tu presencia digital con estrategias de marketing automatizadas. Generamos contenido, optimizamos campañas y maximizamos resultados usando IA.",
+      "benefits": [
+        { "title": "Contenido automatizado", "description": "Generamos publicaciones y copywriting para redes sociales usando IA." },
+        { "title": "Optimización de campañas", "description": "Ajustamos automáticamente pujas, segmentación y presupuestos para maximizar el ROI." },
+        { "title": "Hashtags inteligentes", "description": "Sistema que analiza tendencias y recomienda hashtags efectivos." },
+        { "title": "Analítica en tiempo real", "description": "Dashboards que muestran el rendimiento al instante con recomendaciones accionables." },
+        { "title": "Multiplataforma", "description": "Gestión unificada de campañas en Meta, Google, LinkedIn y más." },
+        { "title": "Precios inteligentes", "description": "Algoritmos que recomiendan precios óptimos basados en demanda y competencia." }
+      ],
+      "faq": [
+        { "question": "¿Cómo se diferencia de una agencia tradicional?", "answer": "Usamos IA para automatizar creación de contenido, optimización y análisis a menor costo." },
+        { "question": "¿Con qué plataformas trabajan?", "answer": "Meta, Google Ads, LinkedIn Ads, TikTok y más, todo desde un sistema centralizado." },
+        { "question": "¿Puedo mantener el control sobre las campañas?", "answer": "Sí. Tú defines las estrategias. La IA ejecuta y optimiza bajo tus directrices." },
+        { "question": "¿En cuánto tiempo veo resultados?", "answer": "Mejoras en la primera semana. Resultados significativos en CPA y ROAS en 2-4 semanas." }
+      ]
+    }
+  ]
+}

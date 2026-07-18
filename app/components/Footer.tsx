@@ -10,13 +10,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="sm:col-span-2 lg:col-span-2">
-            <Link href="/">
+            <Link href="/" aria-label="RA2P Labs Logo">
               <Logo />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
-              Transformamos empresas con software inteligente,
-              automatización avanzada e inteligencia artificial.
-              Tu socio tecnológico para el futuro digital.
+              Software &bull; Inteligencia Artificial &bull; Automatización
             </p>
           </div>
 

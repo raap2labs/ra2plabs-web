@@ -1,33 +1,47 @@
 "use client";
 
 import { useEffect } from "react";
-import { initProviders, trackEvent, type AnalyticsProvider, type EventProps } from "../lib/analytics";
+import { usePathname } from "next/navigation";
+import {
+  initProviders,
+  trackEvent,
+  trackPageView,
+  type AnalyticsProvider,
+  type EventProps,
+} from "../lib/analytics";
 import { useScrollDepth } from "../lib/analytics/hooks";
 
-type ScriptConfig = {
-  src: string;
-  attrs?: Record<string, string>;
-  check: string;
+const SCRIPT_SRC: Record<string, string> = {
+  plausible: "https://plausible.io/js/script.js",
+  umami: "https://cloud.umami.is/script.js",
+  google: "https://www.googletagmanager.com/gtag/js",
 };
 
-const SCRIPTS: Record<AnalyticsProvider, ScriptConfig> = {
-  plausible: {
-    src: "https://plausible.io/js/script.js",
-    check: "plausible",
-  },
-  umami: {
-    src: "https://cloud.umami.is/script.js",
-    attrs: { "data-website-id": "UMAMI_WEBSITE_ID" },
-    check: "umami",
-  },
-  google: {
-    src: "https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID",
-    check: "gtag",
-  },
+const CSP_DOMAINS: Record<string, string[]> = {
+  plausible: ["plausible.io"],
+  umami: ["cloud.umami.is"],
+  google: ["www.googletagmanager.com", "www.google-analytics.com"],
 };
+
+export function getAnalyticsCSPDomains(): string[] {
+  const raw = process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "";
+  return raw
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter((p) => p === "plausible" || p === "umami" || p === "google")
+    .flatMap((p) => CSP_DOMAINS[p] || []);
+}
 
 export default function AnalyticsProvider() {
+  const pathname = usePathname();
+
   useScrollDepth();
+
+  useEffect(() => {
+    if (pathname) {
+      trackPageView(pathname);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const raw = process.env.NEXT_PUBLIC_ANALYTICS_PROVIDER || "";
@@ -43,22 +57,26 @@ export default function AnalyticsProvider() {
     initProviders();
 
     providers.forEach((provider) => {
-      const config = SCRIPTS[provider];
-      if (!config) return;
-
       if (document.querySelector(`script[data-analytics="${provider}"]`)) return;
-      if ((window as unknown as Record<string, unknown>)[config.check]) return;
 
       const script = document.createElement("script");
       script.setAttribute("data-analytics", provider);
       script.defer = true;
-      script.src = resolveSrc(provider);
+      script.async = true;
 
-      if (config.attrs) {
-        Object.entries(config.attrs).forEach(([key, val]) => {
-          const envVal = process.env[`NEXT_PUBLIC_${val}`];
-          if (envVal) script.setAttribute(key, envVal);
-        });
+      if (provider === "umami") {
+        const id = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+        if (!id) return;
+        script.src =
+          process.env.NEXT_PUBLIC_UMAMI_SRC || SCRIPT_SRC.umami;
+        script.setAttribute("data-website-id", id);
+      } else if (provider === "google") {
+        const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+        if (!id) return;
+        script.src = `${SCRIPT_SRC.google}?id=${id}`;
+      } else {
+        script.src =
+          process.env.NEXT_PUBLIC_PLAUSIBLE_SRC || SCRIPT_SRC.plausible;
       }
 
       document.head.appendChild(script);
@@ -100,18 +118,4 @@ export default function AnalyticsProvider() {
   }, []);
 
   return null;
-}
-
-function resolveSrc(provider: AnalyticsProvider): string {
-  switch (provider) {
-    case "plausible":
-      return process.env.NEXT_PUBLIC_PLAUSIBLE_SRC || "https://plausible.io/js/script.js";
-    case "umami":
-      return process.env.NEXT_PUBLIC_UMAMI_SRC || "https://cloud.umami.is/script.js";
-    case "google":
-      const id = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-      return id
-        ? `https://www.googletagmanager.com/gtag/js?id=${id}`
-        : "https://www.googletagmanager.com/gtag/js";
-  }
 }

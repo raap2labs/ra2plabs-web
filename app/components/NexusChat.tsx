@@ -2,7 +2,14 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, XClose, Send } from "./Icons";
-import { getChatResponse, SUGGESTED_QUESTIONS, GREETING_MESSAGE, type ChatMessage } from "../lib/chat";
+import {
+  getChatResponse,
+  getSuggestedQuestions,
+  qualifyLead,
+  GREETING_MESSAGE,
+  type ChatMessage,
+} from "../lib/chat";
+import { trackNexusMessage, trackNexusLeadQualified } from "../lib/analytics";
 
 export default function NexusChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +18,12 @@ export default function NexusChat() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const leadTrackedRef = useRef(false);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const qualification = qualifyLead(messages);
+  const suggestions = getSuggestedQuestions(messages);
 
   useEffect(() => {
     if (listRef.current) {
@@ -20,19 +31,38 @@ export default function NexusChat() {
     }
   }, [messages, isTyping]);
 
-  const handleSend = useCallback(async (text?: string) => {
-    const msg = (text || input).trim();
-    if (!msg || isTyping) return;
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
 
-    setInput("");
-    const userMsg: ChatMessage = { role: "user", content: msg };
-    setMessages((prev) => [...prev, userMsg]);
-    setIsTyping(true);
+  useEffect(() => {
+    if (!leadTrackedRef.current && qualification !== "cold") {
+      leadTrackedRef.current = true;
+      trackNexusLeadQualified(qualification, "chat");
+    }
+  }, [qualification]);
 
-    const response = await getChatResponse(msg, messages);
-    setIsTyping(false);
-    setMessages((prev) => [...prev, { role: "assistant", content: response }]);
-  }, [input, isTyping, messages]);
+  const handleSend = useCallback(
+    async (text?: string) => {
+      const msg = (text || input).trim();
+      if (!msg || isTyping) return;
+
+      setInput("");
+      const userMsg: ChatMessage = { role: "user", content: msg };
+      setMessages((prev) => [...prev, userMsg]);
+      trackNexusMessage("user");
+      setIsTyping(true);
+
+      const history = [...messages, userMsg];
+      const response = await getChatResponse(msg, history);
+      setIsTyping(false);
+      setMessages((prev) => [...prev, { role: "assistant", content: response }]);
+      trackNexusMessage("assistant");
+    },
+    [input, isTyping, messages],
+  );
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -45,6 +75,8 @@ export default function NexusChat() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
+        data-analytics="cta_click"
+        data-analytics-label={isOpen ? "nexus-close" : "nexus-open"}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary hover:bg-primary-hover rounded-full flex items-center justify-center shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105 active:scale-95"
         aria-label={isOpen ? "Cerrar chat" : "Abrir chat Nexus"}
       >
@@ -62,14 +94,18 @@ export default function NexusChat() {
             : "opacity-0 scale-75 pointer-events-none"
         }`}
       >
-        <div className="bg-surface border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden max-h-[560px]">
-          <div className="flex items-center gap-3 px-5 py-4 border-b border-border bg-surface-hover">
+        <div className="bg-surface border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden max-h-[600px]">
+          <div className="flex items-center gap-3 px-5 py-4 border-b border-border bg-surface-hover shrink-0">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-xs font-bold shrink-0">
               N
             </div>
             <div className="min-w-0">
               <p className="text-sm font-semibold tracking-tight">Nexus</p>
-              <p className="text-[11px] text-muted-foreground">Asistente virtual</p>
+              <p className="text-[11px] text-muted-foreground">
+                {qualification === "hot"
+                  ? "Cliente potencial"
+                  : "Asistente virtual"}
+              </p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
@@ -97,7 +133,16 @@ export default function NexusChat() {
                       : "bg-surface-hover border border-border text-foreground rounded-bl-md"
                   }`}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: m.content.replace(/\n/g, "<br>").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }} />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: m.content
+                        .replace(/\n/g, "<br>")
+                        .replace(
+                          /\*\*(.+?)\*\*/g,
+                          "<strong>$1</strong>",
+                        ),
+                    }}
+                  />
                 </div>
               </div>
             ))}
@@ -106,9 +151,18 @@ export default function NexusChat() {
               <div className="flex justify-start">
                 <div className="bg-surface-hover border border-border rounded-2xl rounded-bl-md px-4 py-3">
                   <div className="flex gap-1.5">
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "0s" }} />
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "0.15s" }} />
-                    <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce" style={{ animationDelay: "0.3s" }} />
+                    <span
+                      className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "0s" }}
+                    />
+                    <span
+                      className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "0.15s" }}
+                    />
+                    <span
+                      className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce"
+                      style={{ animationDelay: "0.3s" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -116,9 +170,11 @@ export default function NexusChat() {
 
             {messages.length === 1 && !isTyping && (
               <div className="pt-2">
-                <p className="text-[11px] text-muted-foreground mb-2">Sugerencias:</p>
+                <p className="text-[11px] text-muted-foreground mb-2">
+                  Sugerencias:
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {SUGGESTED_QUESTIONS.map((q) => (
+                  {suggestions.map((q) => (
                     <button
                       key={q}
                       onClick={() => handleSend(q)}
@@ -132,7 +188,23 @@ export default function NexusChat() {
             )}
           </div>
 
-          <div className="border-t border-border px-4 py-3 flex items-center gap-2">
+          {!isTyping && messages.length > 1 && suggestions.length > 0 && (
+            <div className="px-5 pb-1">
+              <div className="flex flex-wrap gap-2">
+                {suggestions.map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => handleSend(q)}
+                    className="text-[11px] px-2.5 py-1 bg-surface-hover border border-border rounded-full text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-200"
+                  >
+                    {q}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="border-t border-border px-4 py-3 flex items-center gap-2 shrink-0">
             <input
               ref={inputRef}
               type="text"
