@@ -1,5 +1,7 @@
 "use server";
 
+import nodemailer from "nodemailer";
+
 export type ContactState = {
   success: boolean;
   errors?: Record<string, string>;
@@ -85,39 +87,42 @@ export async function contactAction(
     `Mensaje: ${message}`,
   ].join("\n");
 
-  const apiKey = process.env.EMAIL_API_KEY;
-  const from = process.env.EMAIL_FROM;
   const to = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
-  if (apiKey && from && to) {
+  if (to) {
     try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from,
-          to: [to],
+      const user = process.env.EMAIL_USER;
+      const pass = process.env.EMAIL_PASS;
+
+      if (user && pass) {
+        const transporter = nodemailer.createTransport({
+          host: process.env.EMAIL_HOST || "smtp.gmail.com",
+          port: Number(process.env.EMAIL_PORT) || 587,
+          secure: false,
+          auth: { user, pass },
+        });
+
+        await transporter.sendMail({
+          from: `"RA2P Labs Contacto" <${user}>`,
+          to,
+          replyTo: email,
           subject: `Nuevo contacto de ${name} — ${company}`,
           text: emailBody,
-        }),
-      });
-
-      if (!res.ok) {
-        const body = await res.text();
-        console.error("Resend error:", res.status, body);
-        return { success: false, error: "Error al enviar el mensaje. Intenta de nuevo." };
+        });
+      } else {
+        console.log("─── Contact Form Submission (no email config) ───");
+        console.log(emailBody);
+        console.log("──────────────────────────────────────────────────");
+        await new Promise((r) => setTimeout(r, 800));
       }
     } catch (err) {
       console.error("Failed to send email:", err);
       return { success: false, error: "Error al enviar el mensaje. Intenta de nuevo." };
     }
   } else {
-    console.log("─── Contact Form Submission ───");
+    console.log("─── Contact Form Submission (no recipient) ───");
     console.log(emailBody);
-    console.log("───────────────────────────────");
+    console.log("───────────────────────────────────────────────");
     await new Promise((r) => setTimeout(r, 800));
   }
 
